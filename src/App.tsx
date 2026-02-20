@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
+  { id: 'certifications', label: 'Certifications' },
   { id: 'contact', label: 'Contact' },
 ] as const
 
@@ -21,28 +22,46 @@ const skills = {
 
 const projects = [
   {
-    title: 'Empty Palettes Management System (2026)',
+    title: 'Empty Palettes Management System (Mini project 2026)',
     description:
       'Web-based inventory management system to track empty pallets across industrial sites.',
     stack: ['Django', 'Python', 'SQL Server', 'Bootstrap 5', 'Power BI', 'Excel Integration'],
   },
   {
-    title: 'AI Career Advisor (2026)',
+    title: 'AI Career Advisor (Academic project 2026)',
     description:
       'Platform analyzing student profiles and job market trends to recommend tailored career paths.',
     stack: ['Spring Boot', 'React', 'PostgreSQL', 'JWT', 'spaCy'],
   },
   {
-    title: 'HikingEvent (2025)',
+    title: 'NLP Sentiments Analysis Project',
+    description:
+      'End-to-end sentiment analysis pipeline using classical Machine Learning and Deep Learning and Trabsformer models.',
+    stack: ['Python', 'Machine Learning', 'Deep Learning', 'Pytorch','BERT', 'RNN','GRU','LSTM'],
+  },
+  {
+    title: 'HikingEvent (Academic project 2025)',
     description:
       'Mobile app for hiking enthusiasts with events, real-time chat, photos, and maps.',
     stack: ['Flutter', 'Firebase', 'Firestore', 'Google Maps SDK', 'FCM'],
   },
   {
-    title: 'Bricole Platform (2024)',
+  title: "Parking Management Web Application (Academic project 2025)",
+  description:
+    "Web application designed to automate parking operations, including vehicle entry/exit tracking, real-time space occupancy monitoring, and automatic fee calculation based on parking duration. The system exposes REST APIs and provides an intuitive dashboard to support fast operational decisions.",
+  stack: ["REST API", "Dashboard", "Django", "Python", "Web Engineering"],
+},
+{
+  title: "Drive Now – Car Rental Mobile Application (Academic project 2025)",
+  description:
+    "Mobile application for car rental management, allowing users to securely sign up and log in using JWT, browse available vehicles with photos and pricing, and book cars in real time. Includes an admin interface to manage vehicles, users, and reservations, built on a scalable REST architecture.",
+  stack: ["Flutter", "Spring Boot", "JWT", "REST API"],
+},
+  {
+    title: 'Bricole Platform (Academic project2024)',
     description:
       'Marketplace connecting clients with professionals for home services and online payments.',
-    stack: ['Laravel', 'MySQL', 'Stripe', 'PHP'],
+    stack: ['Laravel', 'MySQL', 'PHP'],
   },
 ]
 
@@ -61,6 +80,34 @@ const experiences = [
     description:
       'Developed an internal app to centralize energy data and support energy efficiency decisions.',
   },
+]
+
+const certifications = [
+  {
+    title: "Foundations of Data Science",
+    org: "Google",
+  },
+  {
+    title: "Machine Learning with Python",
+    org: "IBM",
+  },
+  {
+    title: "Software Engineering (Design & Project)",
+    org: "The Hong Kong University of Science and Technology",
+  },
+  {
+    title: "React Native / React Basics",
+    org: "Meta",
+  },
+  {
+    title: "Programming for Everybody (Python)",
+    org: "University of Michigan",
+  },
+  {
+    title: "Web Design for Everybody Capstone",
+    org: "University of Michigan",
+  },
+  
 ]
 
 function useActiveSection(defaultSection: SectionId = 'about'): SectionId {
@@ -201,6 +248,28 @@ export default function App() {
             ))}
           </div>
         </section>
+
+
+        {/* Certifications */}
+<section id="certifications" className="scroll-mt-28">
+  <SectionHeader
+    eyebrow="Certifications"
+    title="Professional certifications & online courses."
+    kicker="Recognized certifications that strengthen my technical and engineering skills."
+  />
+
+  <div className="grid gap-6 md:grid-cols-2">
+    {certifications.map((cert) => (
+      <div
+        key={cert.title}
+        className="rounded-3xl border border-slate-200 bg-white p-5 text-slate-900 shadow-lg"
+      >
+        <p className="text-sm font-semibold text-slate-900">{cert.title}</p>
+        <p className="mt-1 text-xs text-slate-600">{cert.org}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
         {/* Skills */}
 <section id="skills" className="scroll-mt-28">
